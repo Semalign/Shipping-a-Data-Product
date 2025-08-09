@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: fct_messages
+    columns:
+      - name: message_id
+        tests:
+          - unique
+          - not_null
+      - name: message_date
+        tests:
+          - not_null
+
+tests:
+  - name: no_future_messages
+    sql: |
+      select * from {{ ref('stg_telegram_messages') }} where message_date > now()
