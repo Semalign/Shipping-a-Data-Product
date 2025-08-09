@@ -1,0 +1,6 @@
+.env
+__pycache__/
+data/raw/
+*.pyc
+dbt/target/
+dbt/.profiles.yml
